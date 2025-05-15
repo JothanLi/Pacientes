@@ -19,6 +19,11 @@ public class PacienteService {
         return pacienteRepository.findAll();
     }
 
+    public Paciente findById(Integer id){
+        return pacienteRepository.findById(id).orElse(null);
+    }
 
-
+    public void deleteById(Integer id){
+        pacienteRepository.deleteById(id);
+    }
 }
