@@ -15,15 +15,23 @@ public class PacienteService {
     @Autowired
     public PacienteRepository pacienteRepository;
 
-    public List<Paciente> findAll(){
+    public List<Paciente> listaPacientes() {
         return pacienteRepository.findAll();
     }
 
-    public Paciente findById(Integer id){
+    public Paciente buscarPaciente(Integer id){
         return pacienteRepository.findById(id).orElse(null);
     }
 
-    public void deleteById(Integer id){
+    public Paciente buscarPacientePorCorreo(String correo){
+       return pacienteRepository.findByCorreo(correo);
+    }
+
+    public void deletePaciente(Integer id) {
         pacienteRepository.deleteById(id);
+    }
+
+    public Paciente guardarPaciente(Paciente paciente) {
+        return pacienteRepository.save(paciente);
     }
 }

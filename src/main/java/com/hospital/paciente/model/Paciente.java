@@ -28,6 +28,9 @@ public class Paciente {
     @Column(nullable = false, unique = true, length = 100)
     public String correo;
 
+    @Column(nullable = false, unique = true, length = 12)
+    public String rut;
+
     @Column(nullable = false, unique = false)
     public Date fechaNacimiento;
 
